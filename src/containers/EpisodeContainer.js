@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import EpisodeList from "../components/EpisodeList";
-import EpisodeListTwo from "../components/EpisodeListTwo";
 
 const EpisodeContainer = () => {
 
@@ -16,7 +15,6 @@ const EpisodeContainer = () => {
     }, []);
 
 
-
     const getEpisodes = () => {
         fetch("https://rickandmortyapi.com/api/episode")
         .then(result => result.json())
@@ -29,13 +27,14 @@ const EpisodeContainer = () => {
         .then(episodesPageTwo => setEpisodesPageTwo(episodesPageTwo.results))
     };
 
+
+
     return (
 
         <>
             <div className="main-container">
                 <h2>Rick & Morty Episodes</h2>
-                <EpisodeList episodes={episodes} />
-                <EpisodeListTwo episodesPageTwo={episodesPageTwo} />
+                <EpisodeList episodes={episodes} episodesPageTwo={episodesPageTwo}/>
             </div>
         </>
 
